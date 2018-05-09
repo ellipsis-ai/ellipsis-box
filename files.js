@@ -1,6 +1,8 @@
+"use strict";
+
 const fs = require('fs');
 
-return ellipsis => {
+module.exports = ellipsis => {
   const client = require('box-sdk')(ellipsis);
   
   return {
