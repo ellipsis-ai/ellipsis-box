@@ -16,7 +16,10 @@ module.exports = ellipsis => {
             const fileId = res.entries[0].id;
             if (fileId) {
               client.files.update(fileId, {shared_link: client.accessLevels.DEFAULT}).then(file => {
-                resolve(file.shared_link.url);
+                resolve({
+                  url: file.shared_link.url,
+                  downloadUrl: file.shared_link.download_url
+                });
               });
             } else {
               reject("No file ID");
