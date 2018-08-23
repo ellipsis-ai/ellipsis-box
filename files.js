@@ -2,8 +2,8 @@
 
 const fs = require('fs');
 
-module.exports = ellipsis => {
-  const client = require('./sdk')(ellipsis);
+module.exports = (ellipsis, configJsonString, enterpriseId) => {
+  const client = require('./sdk')(ellipsis, configJsonString, enterpriseId);
   
   return {
     
