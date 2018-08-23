@@ -2,8 +2,8 @@
 
 const BoxSDK = require('box-node-sdk');
 
-module.exports = ellipsis => {
-  const configJSON = JSON.parse(ellipsis.env.BOX_CONFIG);
+module.exports = (ellipsis, configJsonString, enterpriseId) => {
+  const configJSON = JSON.parse(configJsonString || ellipsis.env.BOX_CONFIG);
   const sdk = BoxSDK.getPreconfiguredInstance(configJSON);
-  return sdk.getAppAuthClient('enterprise', ellipsis.env.BOX_APP_ENTERPRISE_ID);
+  return sdk.getAppAuthClient('enterprise', enterpriseId || ellipsis.env.BOX_APP_ENTERPRISE_ID);
 }
